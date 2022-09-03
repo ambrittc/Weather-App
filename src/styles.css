@@ -102,3 +102,11 @@ li {
   padding: 35px;
   background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
+
+.open-source {
+  font-size: 13px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: sans-serif;
+}
