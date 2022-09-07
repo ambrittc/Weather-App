@@ -74,6 +74,12 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 23;
 }
 
+function searchDescription(event) {
+  event.preventDefault();
+  let description = document.querySelector("#description");
+  searchDescription.innerHTML = Cloudy;
+}
+
 let dayAndTime = document.querySelector("#date");
 let date = new Date();
 dayAndTime.innerHTML = formatDate(date);
