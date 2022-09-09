@@ -8,7 +8,7 @@ h1 {
   font-family: poppins, sans-serif;
   font-weight: 300;
   font-style: medium;
-  color: grey;
+  color: rgb(1, 50, 141);
   margin-top: 40px;
   margin-bottom: 0%;
   padding: 0 auto;
@@ -20,12 +20,14 @@ h2 {
   font-family: poppins, sans-serif;
   font-weight: 600;
   font-style: bold;
-  color: grey;
+  color: rgb(1, 50, 141);
+  padding: 0 auto;
+  margin: 0 auto;
 }
 
 .image {
   display: block;
-  margin: auto;
+  margin: 0 auto;
   width: 20%;
 }
 
@@ -65,7 +67,7 @@ p {
   font-family: poppins, sans-serif;
   font-weight: 500;
   font-style: normal;
-  color: rgb(100, 100, 100);
+  color: rgb(1, 50, 141);
 }
 
 .weather {
@@ -73,7 +75,7 @@ p {
   font-family: monospace;
   font-weight: 500;
   font-style: light;
-  color: rgb(139, 138, 138);
+  color: grey;
 }
 
 .pics {
@@ -85,7 +87,8 @@ p {
 li {
   list-style-type: none;
   font-family: poppins, sans-serif;
-  color: grey;
+  color: rgb(1, 50, 141);
+  text-transform: capitalize;
 }
 
 .units {
@@ -109,4 +112,31 @@ li {
   margin: 0 auto;
   padding: 10px;
   font-family: sans-serif;
+}
+
+.temperature {
+  font-size: 80px;
+  list-style-type: none;
+  font-family: poppins, sans-serif;
+  color: rgb(1, 50, 141);
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: 200px;
+}
+
+.weather-icon img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.description {
+  list-style-type: none;
+  font-family: poppins, sans-serif;
+  color: rgb(1, 50, 141);
+  text-transform: capitalize;
+  text-align: center;
+}
+img {
+  display: block;
+  border-style: none;
 }
