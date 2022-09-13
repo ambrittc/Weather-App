@@ -23,6 +23,27 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = '<div class="row">;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function)(day) {
+    forecastHTML = forecastHTML +
+    '
+     <div class="col-2">
+              <div class="weather-forecast-date"></div>
+              ${day} <br />
+              <img src="https://openweathermap.org/img/wn/50d@2x.png" alt=" " class="pics" />
+              <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature-max">
+                  <strong> 22° </strong></span>
+                  <span class="weather-forecast-temperature-min">
+                  16° </span>
+              </div>
+';
+});
+           
 function showTemp(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -34,6 +55,8 @@ function showTemp(response) {
   document.querySelector("#minimum").innerHTML = Math.round(
     response.data.main.temp_min
   );
+
+  celsiusLink = response.data.main.temp;
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
@@ -95,3 +118,6 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+searchCity("Toronto");
+displayForecast();

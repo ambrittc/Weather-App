@@ -140,3 +140,15 @@ img {
   display: block;
   border-style: none;
 }
+
+.weather-forecast-temperature {
+  font-size: 13px;
+  font-family: monospace;
+  color: grey;
+}
+.weather-forecast-temperature-max {
+  font-size: 13px;
+  font-family: monospace;
+  color: grey;
+  font-weight: 20px;
+}
