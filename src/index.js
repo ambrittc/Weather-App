@@ -39,13 +39,12 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-        <div class="weather-forecast-date">${formatDay}
-        ${forecastDay.dt}
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+        <div class="weather-forecast-date">
+        ${formatDay(forecastDay.dt)}
         </div>
-        ${index}
         <img src="https://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
         }@2x.png" alt=" " class="pics" />
@@ -56,6 +55,7 @@ function displayForecast(response) {
             ${Math.round(forecastDay.temp.min)}° </span>
         </div>
       </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + "</div>";
@@ -65,9 +65,8 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "a7aa8cc77c1f3d73c2473ca3fc6238a3";
-  let apiURL =
-    "https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric";
+  let apiKey = "a43564c91a6c605aeb564c9ed02e3858";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiURL);
   axios.get(apiURL).then(displayForecast);
 }
@@ -86,6 +85,8 @@ function showTemp(response) {
 
   celsiusLink = response.data.main.temp;
 
+  getForecast(response.data.coord);
+
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   let iconElement = document.querySelector("#icon");
@@ -95,8 +96,6 @@ function showTemp(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].icon);
 }
-
-getForecast(response.data.coord);
 
 function searchCity(city) {
   let apiKey = `a7aa8cc77c1f3d73c2473ca3fc6238a3`;
