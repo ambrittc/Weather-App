@@ -38,10 +38,10 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 4) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="col-3">
         <div class="weather-forecast-date">
         ${formatDay(forecastDay.dt)}
         </div>
@@ -122,14 +122,14 @@ function getCurrentLocation(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 89;
+  let temperatureElement = document.querySelector("#temperature-link");
+  temperatureElement.innerHTML = Math.round("click", fahrenheitLink);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 23;
+  let temperatureElement = document.querySelector("#temperature-link");
+  temperatureElement.innerHTML = Math.round("click", celsiusLink);
 }
 
 let dayAndTime = document.querySelector("#date");
