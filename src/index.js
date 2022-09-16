@@ -83,7 +83,9 @@ function showTemp(response) {
     response.data.main.temp_min
   );
 
-  celsiusLink = response.data.main.temp;
+  fahrenheitTemperature = response.data.main.temp;
+  fahrenheitMaximumTemperature = response.data.main.temp_max;
+  fahrenheitMinimumTemperature = response.data.main.temp_min;
 
   getForecast(response.data.coord);
 
@@ -122,14 +124,33 @@ function getCurrentLocation(event) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature-link");
-  temperatureElement.innerHTML = Math.round("click", fahrenheitLink);
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  document.querySelector("#maximum").innerHTML = Math.round(
+    fahrenheitMaximumTemperature
+  );
+
+  document.querySelector("#minimum").innerHTML = Math.round(
+    fahrenheitMinimumTemperature
+  );
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature-link");
-  temperatureElement.innerHTML = Math.round("click", celsiusLink);
+  let temperatureElement = document.querySelector("#temperature");
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let celsiusMaximumTemperature = ((fahrenheitMaximumTemperature - 32) * 5) / 9;
+  document.querySelector("#maximum").innerHTML = Math.round(
+    celsiusMaximumTemperature
+  );
+
+  let celsiusMinimumTemperature = ((fahrenheitMinimumTemperature - 32) * 5) / 9;
+  document.querySelector("#minimum").innerHTML = Math.round(
+    celsiusMinimumTemperature
+  );
 }
 
 let dayAndTime = document.querySelector("#date");
@@ -149,4 +170,7 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Toronto");
-displayForecast();
+
+let fahrenheitTemperature = null;
+let fahrenheitMaximumTemperature = null;
+let fahrenheitMinimumTemperature = null;
